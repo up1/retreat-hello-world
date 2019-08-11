@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { Message } from './message';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class RestApiService {
 
   constructor(private http: HttpClient) { }
 
-  getMessage() {
-    return this.http.get<Message>(this.apiURL + '/api1/')
+  getMessage(): Observable<Message> {
+    return this.http.get<Message>(this.apiURL + '/api1')
     .pipe(
       retry(1),
       catchError(this.handleError)
