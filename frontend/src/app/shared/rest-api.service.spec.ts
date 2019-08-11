@@ -1,15 +1,42 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { RestApiService } from './rest-api.service';
+import { Message } from './message';
 
 describe('RestApiService', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
-        providers: [RestApiService]
-  }));
+
+  let service: RestApiService;
+  let httpTestingController: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [RestApiService]
+    });
+    service = TestBed.get(RestApiService);
+    httpTestingController = TestBed.get(HttpTestingController);
+  });
 
   it('should be created', () => {
-    const service: RestApiService = TestBed.get(RestApiService);
     expect(service).toBeTruthy();
+  });
+
+  it('Service testing with HTTP client', () => {
+    // Arrange
+    const response = {
+      message: 'Dummy'
+    };
+
+    // Act
+    service.getMessage().subscribe((data: Message) => {
+      this.result = data.message;
+      expect(data.message).toBe('Beautiful Day');
+    });
+
+    // Assert
+    const request = httpTestingController.expectOne('http://localhost:3000/api1');
+    expect(request.request.method).toEqual('GET');
+    request.flush(response);
+    httpTestingController.verify();
   });
 });
