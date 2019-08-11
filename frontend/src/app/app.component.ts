@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   getMessage() {
-    return this.restApi.getMessage().subscribe((data: any) => {
+    return this.restApi.getMessage().subscribe((data: Message) => {
       this.result = data.message;
     });
   }
