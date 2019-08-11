@@ -29,8 +29,7 @@ describe('RestApiService', () => {
 
     // Act
     service.getMessage().subscribe((data: Message) => {
-      this.result = data.message;
-      expect(data.message).toBe('Beautiful Day');
+      expect(data.message).toEqual('Dummy');
     });
 
     // Assert
