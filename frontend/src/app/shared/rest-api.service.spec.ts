@@ -27,7 +27,7 @@ describe('RestApiService', () => {
       message: 'Dummy'
     };
 
-    // Act
+    // Act and assert
     service.getMessage().subscribe((data: Message) => {
       expect(data.message).toEqual('Dummy');
     });
