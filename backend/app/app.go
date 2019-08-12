@@ -20,7 +20,7 @@ type Result struct {
 // New :: create new application
 func New() *App {
 	router := mux.NewRouter()
-	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/api1", func(w http.ResponseWriter, r *http.Request) {
 		result := Result{"สวัสดีชาวโลก"}
 		json, err := json.Marshal(result)
 		if err != nil {
