@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RestApiService } from './shared/rest-api.service';
-import { of, Observable } from 'rxjs';
+import { of } from 'rxjs';
 import { Message } from './shared/message';
 
 describe('AppComponent', () => {
