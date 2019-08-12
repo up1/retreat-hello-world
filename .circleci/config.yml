@@ -36,5 +36,5 @@ jobs:
           command: cd frontend && npm install --prefix=./firebase-deploy firebase-tools
       - run:
           name: deploy-to-firebase
-          command: cd frontend && ./firebase-deploy/node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
+          command: cd frontend && ./firebase-deploy/node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN --project=fir-860a8
       
