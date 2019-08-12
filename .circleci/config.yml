@@ -27,7 +27,7 @@ jobs:
           prefix: tests
       - run:
           name: angular-lint
-          command: cd frontend && yarn lint -- --format junit -o tslint.xml
+          command: cd frontend && yarn lint --format junit > tslint.xml
       - store_artifacts:
           path: ./frontend/tslint.xml
           prefix: lint
