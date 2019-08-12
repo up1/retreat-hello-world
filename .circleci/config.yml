@@ -31,3 +31,10 @@ jobs:
       - store_artifacts:
           path: ./frontend/tslint.xml
           prefix: lint
+      - run:
+          name: install firebase
+          command: npm install --save-dev firebase-tools
+      - run:
+          name: deploy-to-firebase
+          command: npm run firebase-deploy -- --token=$FIREBASE_TOKEN
+      
