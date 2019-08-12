@@ -15,7 +15,7 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-            - ./node_modules
+            - ./frontend/node_modules
       - run:
           name: angular-build
           command: cd frontend && yarn ng -- build --prod --aot --no-progress
@@ -23,11 +23,11 @@ jobs:
           name: angular-test
           command: cd frontend && yarn test -- --single-run --no-progress
       - store_artifacts:
-          path: test-results.xml
+          path: ./frontend/test-results.xml
           prefix: tests
       - run:
           name: angular-lint
           command: cd frontend && yarn lint -- --format junit -o tslint.xml
       - store_artifacts:
-          path: tslint.xml
+          path: ./frontend/tslint.xml
           prefix: lint
