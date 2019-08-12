@@ -21,7 +21,7 @@ jobs:
           command: cd frontend && yarn ng -- build --prod --aot --no-progress
       - run:
           name: angular-test
-          command: cd frontend && yarn test --no-progress
+          command: cd frontend && yarn test --watch=false
       - store_artifacts:
           path: ./frontend/test-results.xml
           prefix: tests
