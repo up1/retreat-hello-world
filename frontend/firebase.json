@@ -8,7 +8,11 @@
     ],
     "rewrites": [
       {
-        "source": "/api1",
+        "source": "**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/api1{,/**}",
         "run": {
           "serviceId": "api1",
           "region": "asia-northeast1"
