@@ -33,8 +33,8 @@ jobs:
           prefix: lint
       - run:
           name: install firebase
-          command: npm install --save-dev firebase-tools
+          command: cd frontend && npm install --save-dev firebase-tools
       - run:
           name: deploy-to-firebase
-          command: npm run firebase-deploy -- --token=$FIREBASE_TOKEN
+          command: cd frontend && npm run firebase-deploy -- --token=$FIREBASE_TOKEN
       
