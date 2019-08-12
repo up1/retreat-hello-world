@@ -9,7 +9,7 @@ import { throwError, Observable } from 'rxjs';
 })
 export class RestApiService {
 
-  apiURL = 'https://fir-860a8.web.app';
+  apiURL = 'https://gitlab-203909.web.app';
 
   constructor(private http: HttpClient) { }
 

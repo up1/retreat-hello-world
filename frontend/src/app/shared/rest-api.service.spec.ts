@@ -33,7 +33,7 @@ describe('RestApiService', () => {
     });
 
     // Assert
-    const request = httpTestingController.expectOne('https://fir-860a8.web.app/api1');
+    const request = httpTestingController.expectOne('https://gitlab-203909.web.app/api1');
     expect(request.request.method).toEqual('GET');
     request.flush(response);
     httpTestingController.verify();

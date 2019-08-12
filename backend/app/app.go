@@ -1,7 +1,7 @@
 package app
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -12,11 +12,24 @@ type App struct {
 	Router *mux.Router
 }
 
+// Result :: data
+type Result struct {
+	Message string
+}
+
 // New :: create new application
 func New() *App {
 	router := mux.NewRouter()
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "สวัสดีชาวโลก")
+		result := Result{"สวัสดีชาวโลก"}
+		json, err := json.Marshal(result)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(json)
 	})
 
 	app := &App{}
