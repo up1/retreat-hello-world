@@ -9,7 +9,7 @@ import { throwError, Observable } from 'rxjs';
 })
 export class RestApiService {
 
-  apiURL = 'http://localhost:3000';
+  apiURL = 'https://fir-860a8.web.app';
 
   constructor(private http: HttpClient) { }
 

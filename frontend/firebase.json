@@ -10,6 +10,13 @@
       {
         "source": "**",
         "destination": "/index.html"
+      },
+      {
+        "source": "/helloworld",
+        "run": {
+          "serviceId": "api1",
+          "region": "asia-northeast1"
+        }
       }
     ]
   }
