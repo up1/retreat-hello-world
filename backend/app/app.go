@@ -14,7 +14,7 @@ type App struct {
 
 // Result :: data
 type Result struct {
-	Message string
+	Message string `json:"message"`
 }
 
 // New :: create new application
