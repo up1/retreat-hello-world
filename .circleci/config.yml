@@ -18,7 +18,7 @@ jobs:
             - ./frontend/node_modules
       - run:
           name: angular-build
-          command: cd frontend && yarn ng -- build --prod --aot --no-progress
+          command: cd frontend && rm -r dist && yarn ng -- build --prod --aot --no-progress
       - run:
           name: angular-test
           command: cd frontend && yarn test --watch=false --no-progress --code-coverage=true
